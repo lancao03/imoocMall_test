@@ -23,6 +23,7 @@ mongoose.connection.on('disconnected', function() {
 	console.log('mongodb connected disconnected')
 })
 
+//查询商品数据
 router.get('/', function(req, res, next) {
 	let page = parseInt(req.param('page'))
 	let pageSize = parseInt(req.param('pageSize'))
@@ -99,4 +100,26 @@ router.get('/', function(req, res, next) {
 	//	res.send('hello good list')
 })
 
+//加入购物车
+router.post('/goods/addCart',function(req,res,next){
+  var userId='100000077'
+  var User=require('../models/user')
+
+  //查询条件 回调（报错，返回的doc）
+  User.findOne({
+    userId:userId
+  },function(err,doc){
+    if(err){
+        res.json({
+          status:1,
+          msg:err.message
+        })
+    }else{
+      res.json({
+          status:0,
+          msg:doc
+      })
+    }
+  })
+})
 module.exports = router
