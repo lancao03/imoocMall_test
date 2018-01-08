@@ -41,7 +41,7 @@
 										<div class="name">{{item.productName}}</div>
 										<div class="price">{{item.salePrice}}</div>
 										<div class="btn-area">
-											<a href="javascript:;" class="btn btn--m">加入购物车</a>
+											<a href="javascript:;" class="btn btn--m" @click="addCart(item.productId)">加入购物车</a>
 										</div>
 									</div>
 								</li>
@@ -123,7 +123,7 @@
 							//数据是否需要累加，加载更多的场景
 							if(flag) {
 								this.goodsList = this.goodsList.concat(res.result.list)
-								
+
 								if(this.goodsList.count === 0) {
 									//假如没有数据了 就不能再滚动了
 									this.busy = true
@@ -164,6 +164,19 @@
 			closePop() {
 				this.filterBy = false
 				this.overLayFlag = false
+			},
+			addCart(productId) {
+				console.log(productId)
+				axios.post('/goods/addCart', {
+					productId: productId
+				}).then((res, req) => {
+					res = res.data
+					if(res.status == 0) {
+						alert('加入成功')
+					} else {
+						alert('加入失败' + res.message)
+					}
+				})
 			}
 		}
 	}
