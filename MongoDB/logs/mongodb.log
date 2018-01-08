@@ -1,0 +1,210 @@
+2018-01-07T16:47:33.373+0800 I CONTROL  [main] Trying to install Windows service 'MongoDB'
+2018-01-07T16:47:33.599+0800 I CONTROL  [main] Service 'MongoDB' (MongoDB) installed with command line '"C:\Program Files (x86)\MongoDB\Server\3.2\bin\mongod.exe" --config D:\MongoDB\etc\mongo.conf --service'
+2018-01-07T16:47:33.599+0800 I CONTROL  [main] Service can be started from the command line with 'net start MongoDB'
+2018-01-07T16:48:37.802+0800 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-01-07T16:48:37.814+0800 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2018-01-07T16:48:37.816+0800 I STORAGE  [thread1] Service running
+2018-01-07T16:48:37.817+0800 I CONTROL  [initandlisten] MongoDB starting : pid=15688 port=27017 dbpath=d:\MongoDB\data\ 32-bit host=USERUSE-CDG62FP
+2018-01-07T16:48:37.817+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2018-01-07T16:48:37.818+0800 I CONTROL  [initandlisten] db version v3.2.4
+2018-01-07T16:48:37.818+0800 I CONTROL  [initandlisten] git version: e2ee9ffcf9f5a94fad76802e28cc978718bb7a30
+2018-01-07T16:48:37.818+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-01-07T16:48:37.818+0800 I CONTROL  [initandlisten] modules: none
+2018-01-07T16:48:37.818+0800 I CONTROL  [initandlisten] build environment:
+2018-01-07T16:48:37.819+0800 I CONTROL  [initandlisten]     distarch: i386
+2018-01-07T16:48:37.819+0800 I CONTROL  [initandlisten]     target_arch: i386
+2018-01-07T16:48:37.819+0800 I CONTROL  [initandlisten] options: { config: "D:\MongoDB\etc\mongo.conf", net: { port: 27017 }, service: true, storage: { dbPath: "d:\MongoDB\data\", engine: "mmapv1", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "d:\MongoDB\logs\mongodb.log", quiet: false } }
+2018-01-07T16:48:37.873+0800 I JOURNAL  [initandlisten] journal dir=d:\MongoDB\data\journal
+2018-01-07T16:48:37.874+0800 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2018-01-07T16:48:37.936+0800 I JOURNAL  [durability] Durability thread started
+2018-01-07T16:48:37.937+0800 I JOURNAL  [journal writer] Journal writer thread started
+2018-01-07T16:48:38.034+0800 I CONTROL  [initandlisten] 
+2018-01-07T16:48:38.035+0800 I CONTROL  [initandlisten] ** WARNING: This 32-bit MongoDB binary is deprecated
+2018-01-07T16:48:38.037+0800 I CONTROL  [initandlisten] ** NOTE: This is a 32-bit MongoDB binary running on a 64-bit operating
+2018-01-07T16:48:38.037+0800 I CONTROL  [initandlisten] **      system. Switch to a 64-bit build of MongoDB to
+2018-01-07T16:48:38.039+0800 I CONTROL  [initandlisten] **      support larger databases.
+2018-01-07T16:48:38.040+0800 I CONTROL  [initandlisten] 
+2018-01-07T16:48:38.041+0800 I CONTROL  [initandlisten] 
+2018-01-07T16:48:38.041+0800 I CONTROL  [initandlisten] ** NOTE: This is a 32 bit MongoDB binary.
+2018-01-07T16:48:38.042+0800 I CONTROL  [initandlisten] **       32 bit builds are limited to less than 2GB of data (or less with --journal).
+2018-01-07T16:48:38.042+0800 I CONTROL  [initandlisten] **       See http://dochub.mongodb.org/core/32bit
+2018-01-07T16:48:38.043+0800 I CONTROL  [initandlisten] 
+2018-01-07T16:48:38.049+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2018-01-07T16:48:38.049+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'd:/MongoDB/data/diagnostic.data'
+2018-01-07T16:48:38.050+0800 I INDEX    [initandlisten] allocating new ns file d:\MongoDB\data\local.ns, filling with zeroes...
+2018-01-07T16:48:38.298+0800 I STORAGE  [FileAllocator] allocating new datafile d:\MongoDB\data\local.0, filling with zeroes...
+2018-01-07T16:48:38.299+0800 I STORAGE  [FileAllocator] creating directory d:\MongoDB\data\_tmp
+2018-01-07T16:48:38.306+0800 I STORAGE  [FileAllocator] done allocating datafile d:\MongoDB\data\local.0, size: 64MB,  took 0.004 secs
+2018-01-07T16:48:38.322+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-01-07T16:48:43.433+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52171 #1 (1 connection now open)
+2018-01-07T16:49:00.492+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52225 #2 (2 connections now open)
+2018-01-07T16:49:00.495+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52226 #3 (3 connections now open)
+2018-01-07T16:49:00.680+0800 I NETWORK  [conn2] end connection 127.0.0.1:52225 (2 connections now open)
+2018-01-07T16:49:00.915+0800 I NETWORK  [conn3] end connection 127.0.0.1:52226 (1 connection now open)
+2018-01-07T16:54:12.047+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52321 #4 (2 connections now open)
+2018-01-07T16:54:12.117+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52322 #5 (3 connections now open)
+2018-01-07T16:57:04.749+0800 I NETWORK  [conn1] end connection 127.0.0.1:52171 (2 connections now open)
+2018-01-07T16:58:45.685+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52395 #6 (3 connections now open)
+2018-01-07T16:58:45.725+0800 I INDEX    [conn6] allocating new ns file d:\MongoDB\data\dumall.ns, filling with zeroes...
+2018-01-07T16:58:46.060+0800 I STORAGE  [FileAllocator] allocating new datafile d:\MongoDB\data\dumall.0, filling with zeroes...
+2018-01-07T16:58:46.066+0800 I STORAGE  [FileAllocator] done allocating datafile d:\MongoDB\data\dumall.0, size: 64MB,  took 0.003 secs
+2018-01-07T16:58:46.093+0800 I COMMAND  [conn6] command dumall.users command: insert { insert: "users", documents: [ { _id: ObjectId('58c41d5d3eddd93e9ab5b078'), userId: "100000077", userName: "admin", userPwd: "123456", orderList: [ { orderId: "6224201705302250301", orderTotal: 3359, addressInfo: { addressId: "100001", userName: "JackBean", streetName: "北京市朝阳区朝阳公园", postCode: 100001, tel: 12345678901.0, isDefault: true }, goodsList: [ { productImage: "mi6.jpg", salePrice: "2499", productName: "小米6", productId: "201710006", _id: ObjectId('58c284f4117a2e6599abef60'), productNum: "1", checked: "1" }, { productImage: "2.jpg", salePrice: "80", productName: "头戴式耳机-3", productId: "201710004", _id: ObjectId('58c284d7117a2e6599abef5e'), productNum: "7", checked: "1" } ], orderStatus: "1", createDate: "2017-05-30 22:50:30" }, { orderId: "9201706071525282", orderTotal: "5558", orderStatus: 1, _id: ObjectId('5937aa68adad24614cb310af'), createDate: "2017-06-07 15:25:28", goodsList: [ { productImage: "mi6.jpg", salePrice: "2499", productName: "小米6", productId: "201710006", _id: ObjectId('58c284f4117a2e6599abef60'), productNum: "2" }, { productImage: "2.jpg", salePrice: "80", productName: "头戴式耳机-3", productId: "201710004", _id: ObjectId('58c284d7117a2e6599abef5e'), productNum: "7" } ] }, { orderId: "7201706081545294", orderTotal: "5558", orderStatus: 1, _id: ObjectId('59390099c0444831c461d576'), createDate: "2017-06-08 15:45:29", goodsList: [ { productImage: "mi6.jpg", salePrice: "2499", productName: "小米6", productId: "201710006", _id: ObjectId('58c284f4117a2e6599abef60'), productNum: "2" }, { productImage: "2.jpg", salePrice: "80", productName: "头戴式耳机-3", productId: "201710004", _id: ObjectId('58c284d7117a2e6599abef5e'), productNum: "7" } ] }, { orderId: "7201706131105338", orderTotal: "560", orderStatus: 1, _id: ObjectId('593f567d366e42108986268a'), createDate: "2017-06-13 11:05:33", goodsList: [ { productImage: "2.jpg", salePrice: "80", productName: "头戴式耳机-3", productId: "201710004", _id: ObjectId('58c284d7117a2e6599abef5e'), productNum: "7" } ] }, { orderId: "5201706131122131", orderTotal: "30160", orderStatus: 1, _id: ObjectId('593f5a65366e42108986268b'), createDate: "2017-06-13 11:22:13", goodsList: [ { productImage: "9.jpg", salePrice: "999", productName: "IH 电饭煲", productId: "201710009", _id: ObjectId('58e7051698dab115d336b3f4'), productNum: "3" }, { productImage: "14.jpg", salePrice: "1600", productName: "Ear1600", productId: "201710014", _id: ObjectId('58e7054798dab115d336b3f9'), productNum: "1" }, { productImage: "note.jpg", salePrice: "3549", productName: "小米笔记本", productId: "201710005", _id: ObjectId('58c284e6117a2e6599abef5f'), productNum: "7" }, { productImage: "2.jpg", salePrice: "80", productName: "头戴式耳机-3", productId: "201710004", _id: ObjectId('58c284d7117a2e6599abef5e'), productNum: "9" } ] }, { orderId: "8201706131828404", orderTotal: "32367", orderStatus: 1, _id: ObjectId('593fbe58e1a5b7147605cb33'), createDate: "2017-06-13 18:28:40", goodsList: [ { productImage: "9.jpg", salePrice: "999", productName: "IH 电饭煲", productId: "201710009", _id: ObjectId('58e7051698dab115d336b3f4'), productNum: "5" }, { productImage: "14.jpg", salePrice: "1600", productName: "Ear1600", productId: "201710014", _id: ObjectId('58e7054798dab115d336b3f9'), productNum: "1" }, { productImage: "note.jpg", salePrice: "3549", productName: "小米笔记本", productId: "201710005", _id: ObjectId('58c284e6117a2e6599abef5f'), productNum: "7" }, { productImage: "2.jpg", salePrice: "80", productName: "头戴式耳机-3", productId: "201710004", _id: ObjectId('58c284d7117a2e6599abef5e'), productNum: "10" }, { productImage: "1.jpg", salePrice: "129", productName: "小钢炮蓝牙音箱", productId: "201710017", _id: ObjectId('58e7058498dab115d336b3fc'), productNum: "1" } ] }, { orderId: "7201706142225144", orderTotal: "2738", orderStatus: 1, _id: ObjectId('5941474ae1a5b7147605cb34'), createDate: "2017-06-14 22:25:14", goodsList: [ { productImage: "14.jpg", salePrice: "1600", productName: "Ear1600", productId: "201710014", _id: ObjectId('58e7054798dab115d336b3f9'), productNum: "1" }, { productImage: "2.jpg", salePrice: "80", productName: "头戴式耳机-3", productId: "201710004", _id: ObjectId('58c284d7117a2e6599abef5e'), productNum: "11" }, { productImage: "1.jpg", salePrice: "129", productName: "小钢炮蓝牙音箱", productId: "201710017", _id: ObjectId('58e7058498dab115d336b3fc'), productNum: "2" } ] }, { orderId: "1201706142242198", orderTotal: "2738", orderStatus: 1, _id: ObjectId('59414b4be1a5b7147605cb35'), createDate: "2017-06-14 22:42:19", goodsList: [ { productImage: "14.jpg", salePrice: "1600", productName: "Ear1600", productId: "201710014", _id: ObjectId('58e7054798dab115d336b3f9'), productNum: "1" }, { productImage: "2.jpg", salePrice: "80", productName: "头戴式耳机-3", productId: "201710004", _id: ObjectId('58c284d7117a2e6599abef5e'), productNum: "11" }, { productImage: "1.jpg", salePrice: "129", productName: "小钢炮蓝牙音箱", productId: "201710017", _id: ObjectId('58e7058498dab115d336b3fc'), productNum: "2" } ] }, { orderId: "8201706150102580", orderTotal: "2499", orderStatus: 1, _id: ObjectId('59416c42e1a5b7147605cb36'), createDate: "2017-06-15 01:02:58", goodsList: [ { productImage: "mi6.jpg", salePrice: "2499", productName: "小米6", productId: "201710006", _id: ObjectId('58c284f4117a2e6599abef60'), productNum: "1" } ] }, { orderId: "5201706150146458", orderTotal: "2886", orderStatus: 1, _id: ObjectId('59417685e1a5b7147605cb37'), createDate: "2017-06-15 01:46:45", goodsList: [ { productImage: "1.jpg", salePrice: "129", productName: "小钢炮蓝牙音箱", productId: "201710017", _id: ObjectId('58e7058498dab115d336b3fc'), productNum: "3" }, { productImage: "mi6.jpg", salePrice: "2499", productName: "小米6", productId: "201710006", _id: ObjectId('58c284f4117a2e6599abef60'), productNum: "1" } ] }, { orderId: "9201706151140355", orderTotal: "4548", orderStatus: 1, _id: ObjectId('594201b348d881235342dbc0'), createDate: "2017-06-15 11:40:35", goodsList: [ { productImage: "9.jpg", salePrice: "999", productName: "IH 电饭煲", productId: "201710009", _id: ObjectId('58e7051698dab115d336b3f4'), productNum: "1" }, { productImage: "note.jpg", salePrice: "3549", productName: "小米笔记本", productId: "201710005", _id: ObjectId('58c284e6117a2e6599abef5f'), productNum: "1" } ] }, { orderId: "1201706151143137", orderTotal: "4548", orderStatus: 1, _id: ObjectId('5942025148d881235342dbc1'), createDate: "2017-06-15 11:43:13", goodsList: [ { productImage: "9.jpg", salePrice: "999", productName: "IH 电饭煲", productId: "201710009", _id: ObjectId('58e7051698dab115d336b3f4'), productNum: "1" }, { productImage: "note.jpg", salePrice: "3549", productName: "小米笔记本", productId: "201710005", _id: ObjectId('58c284e6117a2e6599abef5f'), productNum: "1" } ] } ], cartList: [ { productImage: "1.jpg", salePrice: "129", productName: "小钢炮蓝牙音箱", productId: "201710017", _id: ObjectId('58e7058498dab115d336b3fc'), productNum: "6", checked: "0" }, { productImage: "mi6.jpg", salePrice: "2499", productName: "小米6", productId: "201710006", _id: ObjectId('58c284f4117a2e6599abef60'), productNum: "6", checked: "0" }, { productImage: "9.jpg", salePrice: "999", productName: "IH 电饭煲", productId: "201710009", _id: ObjectId('58e7051698dab115d336b3f4'), productNum: "1", checked: "1" }, { productImage: "note.jpg", salePrice: "3549", productName: "小米笔记本", productId: "201710005", _id: ObjectId('58c284e6117a2e6599abef5f'), productNum: "1", checked: "1" }, { productImage: "6.jpg", salePrice: "59", productName: "智能插线板", productId: "201710002", _id: ObjectId('58e704ef98dab115d336b3f1'), productNum: "1" } ], addressList: [ { addressId: "100001", userName: "JackBean", streetName: "北京市朝阳区朝阳公园", postCode: "100001", tel: "12345678901", isDefault: true }, { addressId: "100004", userName: "Mary", streetName: "北京市朝阳区SOHO", postCode: "100005", tel: "010555555", isDefault: false }, { addressId: "100005", userName: "Donie", streetName: "北京市海淀区西二旗", postCode: "100009", tel: "18710987654", isDefault: false }, { addressId: "100006", userName: "Cherry", streetName: "北京市海淀区回龙观", postCode: "100009", tel: "010655555", isDefault: false }, { addressId: "100007", userName: "Joke", streetName: "北京市朝阳区望京", postCode: "100010", tel: "13619898722", isDefault: false }, { addressId: "100008", userName: "Frank", streetName: "北京市海淀区中关村软件园", postCode: "100011", tel: "10125652345", isDefault: false } ], __v: 30 } ], writeConcern: { getLastError: 1, w: 1 }, ordered: false } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:40 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, MMAPV1Journal: { acquireCount: { w: 8 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 5 } } } protocol:op_query 369ms
+2018-01-07T16:58:46.105+0800 I NETWORK  [conn6] end connection 127.0.0.1:52395 (2 connections now open)
+2018-01-07T16:58:51.565+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52397 #7 (3 connections now open)
+2018-01-07T16:59:25.537+0800 I NETWORK  [conn7] end connection 127.0.0.1:52397 (2 connections now open)
+2018-01-07T16:59:28.667+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52407 #8 (3 connections now open)
+2018-01-07T16:59:28.733+0800 I NETWORK  [conn8] end connection 127.0.0.1:52407 (2 connections now open)
+2018-01-07T16:59:48.776+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52410 #9 (3 connections now open)
+2018-01-07T16:59:48.835+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52411 #10 (4 connections now open)
+2018-01-07T17:00:32.154+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52428 #11 (5 connections now open)
+2018-01-07T17:00:32.186+0800 I NETWORK  [conn11] end connection 127.0.0.1:52428 (4 connections now open)
+2018-01-07T17:00:35.032+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52430 #12 (5 connections now open)
+2018-01-07T17:09:21.246+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:52710 #13 (6 connections now open)
+2018-01-07T17:24:52.050+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53079 #14 (7 connections now open)
+2018-01-07T17:24:52.108+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53080 #15 (8 connections now open)
+2018-01-07T17:30:21.836+0800 I NETWORK  [conn13] end connection 127.0.0.1:52710 (7 connections now open)
+2018-01-07T17:32:42.259+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53409 #16 (8 connections now open)
+2018-01-07T17:36:25.502+0800 I NETWORK  [conn16] end connection 127.0.0.1:53409 (7 connections now open)
+2018-01-07T17:36:27.230+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53723 #17 (8 connections now open)
+2018-01-07T17:59:51.030+0800 I NETWORK  [conn17] end connection 127.0.0.1:53723 (7 connections now open)
+2018-01-07T17:59:59.429+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:54440 #18 (8 connections now open)
+2018-01-07T18:17:24.411+0800 I NETWORK  [conn18] end connection 127.0.0.1:54440 (7 connections now open)
+2018-01-07T18:17:26.691+0800 I NETWORK  [conn9] end connection 127.0.0.1:52410 (6 connections now open)
+2018-01-07T18:17:26.856+0800 I NETWORK  [conn14] end connection 127.0.0.1:53079 (5 connections now open)
+2018-01-07T18:17:27.229+0800 I NETWORK  [conn10] end connection 127.0.0.1:52411 (4 connections now open)
+2018-01-07T18:17:27.229+0800 I NETWORK  [conn15] end connection 127.0.0.1:53080 (4 connections now open)
+2018-01-07T18:17:27.618+0800 I NETWORK  [conn4] end connection 127.0.0.1:52321 (2 connections now open)
+2018-01-07T18:17:27.618+0800 I NETWORK  [conn5] end connection 127.0.0.1:52322 (2 connections now open)
+2018-01-07T18:17:34.529+0800 I NETWORK  [conn12] end connection 127.0.0.1:52430 (0 connections now open)
+2018-01-07T21:38:42.659+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57591 #19 (1 connection now open)
+2018-01-07T21:42:38.910+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:57717 #20 (2 connections now open)
+2018-01-07T21:51:47.555+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:58130 #21 (3 connections now open)
+2018-01-07T21:51:47.615+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:58131 #22 (4 connections now open)
+2018-01-07T21:51:53.325+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:58138 #23 (5 connections now open)
+2018-01-07T21:51:53.369+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:58139 #24 (6 connections now open)
+2018-01-07T22:09:23.290+0800 I NETWORK  [conn19] end connection 127.0.0.1:57591 (5 connections now open)
+2018-01-07T22:09:24.705+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:58958 #25 (6 connections now open)
+2018-01-07T23:41:00.119+0800 I NETWORK  [conn23] end connection 127.0.0.1:58138 (5 connections now open)
+2018-01-07T23:41:00.121+0800 I NETWORK  [conn24] end connection 127.0.0.1:58139 (4 connections now open)
+2018-01-07T23:41:00.372+0800 I NETWORK  [conn21] end connection 127.0.0.1:58130 (3 connections now open)
+2018-01-07T23:41:00.372+0800 I NETWORK  [conn22] end connection 127.0.0.1:58131 (3 connections now open)
+2018-01-07T23:41:06.083+0800 I NETWORK  [conn25] end connection 127.0.0.1:58958 (1 connection now open)
+2018-01-07T23:41:06.291+0800 I NETWORK  [conn20] end connection 127.0.0.1:57717 (0 connections now open)
+2018-01-08T09:54:05.471+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:60780 #26 (1 connection now open)
+2018-01-08T09:56:29.562+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:60973 #27 (2 connections now open)
+2018-01-08T10:01:31.634+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:61383 #28 (3 connections now open)
+2018-01-08T10:01:31.684+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:61384 #29 (4 connections now open)
+2018-01-08T10:01:37.678+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:61388 #30 (5 connections now open)
+2018-01-08T10:01:37.757+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:61389 #31 (6 connections now open)
+2018-01-08T10:01:50.448+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:61393 #32 (7 connections now open)
+2018-01-08T10:01:50.497+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:61394 #33 (8 connections now open)
+2018-01-08T10:32:44.356+0800 I NETWORK  [conn27] end connection 127.0.0.1:60973 (7 connections now open)
+2018-01-08T10:32:45.508+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62160 #34 (8 connections now open)
+2018-01-08T10:36:32.091+0800 I NETWORK  [conn34] end connection 127.0.0.1:62160 (7 connections now open)
+2018-01-08T10:36:33.291+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62223 #35 (8 connections now open)
+2018-01-08T10:38:07.673+0800 I NETWORK  [conn35] end connection 127.0.0.1:62223 (7 connections now open)
+2018-01-08T10:39:07.975+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62322 #36 (8 connections now open)
+2018-01-08T10:39:12.514+0800 I NETWORK  [conn36] end connection 127.0.0.1:62322 (7 connections now open)
+2018-01-08T10:39:13.815+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62324 #37 (8 connections now open)
+2018-01-08T10:39:21.296+0800 I NETWORK  [conn37] end connection 127.0.0.1:62324 (7 connections now open)
+2018-01-08T10:40:52.318+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62381 #38 (8 connections now open)
+2018-01-08T10:42:14.209+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62432 #39 (9 connections now open)
+2018-01-08T10:42:14.265+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62433 #40 (10 connections now open)
+2018-01-08T10:42:15.729+0800 I NETWORK  [conn32] end connection 127.0.0.1:61393 (9 connections now open)
+2018-01-08T10:42:15.731+0800 I NETWORK  [conn33] end connection 127.0.0.1:61394 (8 connections now open)
+2018-01-08T10:42:16.433+0800 I NETWORK  [conn39] end connection 127.0.0.1:62432 (7 connections now open)
+2018-01-08T10:42:16.435+0800 I NETWORK  [conn40] end connection 127.0.0.1:62433 (6 connections now open)
+2018-01-08T10:42:18.295+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62434 #41 (7 connections now open)
+2018-01-08T10:42:18.357+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62435 #42 (8 connections now open)
+2018-01-08T10:42:55.860+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62452 #43 (9 connections now open)
+2018-01-08T10:42:55.929+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62453 #44 (10 connections now open)
+2018-01-08T10:44:04.047+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62478 #45 (11 connections now open)
+2018-01-08T10:44:04.121+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62480 #46 (12 connections now open)
+2018-01-08T10:44:05.384+0800 I NETWORK  [conn43] end connection 127.0.0.1:62452 (11 connections now open)
+2018-01-08T10:44:05.385+0800 I NETWORK  [conn44] end connection 127.0.0.1:62453 (10 connections now open)
+2018-01-08T10:45:57.745+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62550 #47 (11 connections now open)
+2018-01-08T10:45:57.793+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62551 #48 (12 connections now open)
+2018-01-08T10:46:53.777+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62610 #49 (13 connections now open)
+2018-01-08T10:46:53.828+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62611 #50 (14 connections now open)
+2018-01-08T10:48:57.715+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62712 #51 (15 connections now open)
+2018-01-08T10:48:57.790+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:62713 #52 (16 connections now open)
+2018-01-08T10:49:01.942+0800 I NETWORK  [conn30] end connection 127.0.0.1:61388 (15 connections now open)
+2018-01-08T10:49:01.944+0800 I NETWORK  [conn31] end connection 127.0.0.1:61389 (14 connections now open)
+2018-01-08T10:49:01.945+0800 I NETWORK  [conn41] end connection 127.0.0.1:62434 (13 connections now open)
+2018-01-08T10:49:01.947+0800 I NETWORK  [conn42] end connection 127.0.0.1:62435 (12 connections now open)
+2018-01-08T10:49:01.948+0800 I NETWORK  [conn45] end connection 127.0.0.1:62478 (11 connections now open)
+2018-01-08T10:49:01.950+0800 I NETWORK  [conn46] end connection 127.0.0.1:62480 (10 connections now open)
+2018-01-08T10:49:01.952+0800 I NETWORK  [conn47] end connection 127.0.0.1:62550 (9 connections now open)
+2018-01-08T10:49:01.953+0800 I NETWORK  [conn48] end connection 127.0.0.1:62551 (8 connections now open)
+2018-01-08T10:49:01.955+0800 I NETWORK  [conn49] end connection 127.0.0.1:62610 (7 connections now open)
+2018-01-08T10:49:01.956+0800 I NETWORK  [conn50] end connection 127.0.0.1:62611 (6 connections now open)
+2018-01-08T10:54:51.220+0800 I NETWORK  [conn26] end connection 127.0.0.1:60780 (5 connections now open)
+2018-01-08T10:54:53.279+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63005 #53 (6 connections now open)
+2018-01-08T10:55:16.514+0800 I NETWORK  [conn38] end connection 127.0.0.1:62381 (5 connections now open)
+2018-01-08T10:55:21.604+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63011 #54 (6 connections now open)
+2018-01-08T10:55:44.057+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63061 #55 (7 connections now open)
+2018-01-08T10:55:44.114+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63062 #56 (8 connections now open)
+2018-01-08T10:58:39.649+0800 I NETWORK  [conn54] end connection 127.0.0.1:63011 (7 connections now open)
+2018-01-08T10:58:40.786+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63390 #57 (8 connections now open)
+2018-01-08T10:58:58.188+0800 I NETWORK  [conn55] end connection 127.0.0.1:63061 (7 connections now open)
+2018-01-08T10:58:58.189+0800 I NETWORK  [conn56] end connection 127.0.0.1:63062 (6 connections now open)
+2018-01-08T10:58:59.178+0800 I NETWORK  [conn51] end connection 127.0.0.1:62712 (5 connections now open)
+2018-01-08T10:58:59.180+0800 I NETWORK  [conn52] end connection 127.0.0.1:62713 (4 connections now open)
+2018-01-08T10:59:02.578+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63425 #58 (5 connections now open)
+2018-01-08T10:59:02.639+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63426 #59 (6 connections now open)
+2018-01-08T10:59:28.868+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63443 #60 (7 connections now open)
+2018-01-08T10:59:28.937+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63444 #61 (8 connections now open)
+2018-01-08T11:06:13.570+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63714 #62 (9 connections now open)
+2018-01-08T11:06:13.620+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63715 #63 (10 connections now open)
+2018-01-08T11:06:24.081+0800 I NETWORK  [conn53] end connection 127.0.0.1:63005 (9 connections now open)
+2018-01-08T11:07:22.658+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63732 #64 (10 connections now open)
+2018-01-08T11:07:22.718+0800 I NETWORK  [conn64] end connection 127.0.0.1:63732 (9 connections now open)
+2018-01-08T11:07:26.747+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63734 #65 (10 connections now open)
+2018-01-08T11:07:54.449+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63743 #66 (11 connections now open)
+2018-01-08T11:07:54.502+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63744 #67 (12 connections now open)
+2018-01-08T11:17:15.329+0800 I NETWORK  [conn57] end connection 127.0.0.1:63390 (11 connections now open)
+2018-01-08T11:17:16.583+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63860 #68 (12 connections now open)
+2018-01-08T11:17:28.979+0800 I NETWORK  [conn68] end connection 127.0.0.1:63860 (11 connections now open)
+2018-01-08T11:19:14.897+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63920 #69 (12 connections now open)
+2018-01-08T11:19:19.114+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63921 #70 (13 connections now open)
+2018-01-08T11:19:19.175+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63922 #71 (14 connections now open)
+2018-01-08T11:19:22.927+0800 I NETWORK  [conn58] end connection 127.0.0.1:63425 (13 connections now open)
+2018-01-08T11:19:22.928+0800 I NETWORK  [conn59] end connection 127.0.0.1:63426 (12 connections now open)
+2018-01-08T11:19:22.929+0800 I NETWORK  [conn60] end connection 127.0.0.1:63443 (11 connections now open)
+2018-01-08T11:19:22.930+0800 I NETWORK  [conn61] end connection 127.0.0.1:63444 (10 connections now open)
+2018-01-08T11:19:22.932+0800 I NETWORK  [conn62] end connection 127.0.0.1:63714 (9 connections now open)
+2018-01-08T11:19:22.934+0800 I NETWORK  [conn63] end connection 127.0.0.1:63715 (8 connections now open)
+2018-01-08T11:19:22.936+0800 I NETWORK  [conn66] end connection 127.0.0.1:63743 (7 connections now open)
+2018-01-08T11:19:22.938+0800 I NETWORK  [conn67] end connection 127.0.0.1:63744 (6 connections now open)
+2018-01-08T11:19:43.494+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63963 #72 (7 connections now open)
+2018-01-08T11:19:43.561+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63964 #73 (8 connections now open)
+2018-01-08T11:19:55.942+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63966 #74 (9 connections now open)
+2018-01-08T11:19:56.018+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63967 #75 (10 connections now open)
+2018-01-08T11:20:27.281+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64010 #76 (11 connections now open)
+2018-01-08T11:20:27.329+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64011 #77 (12 connections now open)
+2018-01-08T11:20:57.716+0800 I NETWORK  [conn69] end connection 127.0.0.1:63920 (11 connections now open)
+2018-01-08T11:20:59.028+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64020 #78 (12 connections now open)
+2018-01-08T11:21:12.879+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64060 #79 (13 connections now open)
+2018-01-08T11:21:12.963+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64061 #80 (14 connections now open)
+2018-01-08T11:21:29.169+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64070 #81 (15 connections now open)
+2018-01-08T11:21:29.223+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64071 #82 (16 connections now open)
+2018-01-08T11:21:51.610+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64084 #83 (17 connections now open)
+2018-01-08T11:21:51.665+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64085 #84 (18 connections now open)
+2018-01-08T11:21:55.039+0800 I NETWORK  [conn70] end connection 127.0.0.1:63921 (17 connections now open)
+2018-01-08T11:21:55.041+0800 I NETWORK  [conn71] end connection 127.0.0.1:63922 (16 connections now open)
+2018-01-08T11:21:55.042+0800 I NETWORK  [conn72] end connection 127.0.0.1:63963 (15 connections now open)
+2018-01-08T11:21:55.044+0800 I NETWORK  [conn73] end connection 127.0.0.1:63964 (14 connections now open)
+2018-01-08T11:21:55.045+0800 I NETWORK  [conn74] end connection 127.0.0.1:63966 (13 connections now open)
+2018-01-08T11:21:55.047+0800 I NETWORK  [conn75] end connection 127.0.0.1:63967 (12 connections now open)
+2018-01-08T11:21:55.048+0800 I NETWORK  [conn76] end connection 127.0.0.1:64010 (11 connections now open)
+2018-01-08T11:21:55.051+0800 I NETWORK  [conn77] end connection 127.0.0.1:64011 (10 connections now open)
+2018-01-08T11:21:55.052+0800 I NETWORK  [conn79] end connection 127.0.0.1:64060 (9 connections now open)
+2018-01-08T11:21:55.053+0800 I NETWORK  [conn80] end connection 127.0.0.1:64061 (8 connections now open)
+2018-01-08T11:21:55.055+0800 I NETWORK  [conn81] end connection 127.0.0.1:64070 (7 connections now open)
+2018-01-08T11:21:55.057+0800 I NETWORK  [conn82] end connection 127.0.0.1:64071 (6 connections now open)
+2018-01-08T11:27:58.810+0800 I NETWORK  [conn78] end connection 127.0.0.1:64020 (5 connections now open)
+2018-01-08T11:28:00.069+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64182 #85 (6 connections now open)
+2018-01-08T11:28:28.762+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64229 #86 (7 connections now open)
+2018-01-08T11:28:28.810+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64230 #87 (8 connections now open)
+2018-01-08T11:29:00.762+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64247 #88 (9 connections now open)
+2018-01-08T11:29:00.822+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64248 #89 (10 connections now open)
