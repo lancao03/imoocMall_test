@@ -24,7 +24,7 @@ mongoose.connection.on('disconnected', function() {
 })
 
 //查询商品数据
-router.get('/', function(req, res, next) {
+router.get('/list', function(req, res, next) {
 	let page = parseInt(req.param('page'))
 	let pageSize = parseInt(req.param('pageSize'))
 	let priceLevel = req.param('priceLevel')
@@ -102,17 +102,17 @@ router.get('/', function(req, res, next) {
 
 //加入购物车 二级路由前面不需要加goods
 //加入到购物车
-router.post("/addCart", function (req,res,next) {
+router.post('/addCart', function (req,res,next) {
   var userId = '100000077',productId = req.body.productId;
   var User = require('../models/user');
   User.findOne({userId:userId}, function (err,userDoc) {
     if(err){
         res.json({
-            status:"1",
+            status:'1',
             msg:err.message
         })
     }else{
-        console.log("userDoc:"+userDoc);
+        console.log('userDoc:'+userDoc);
         if(userDoc){
           var goodsItem = '';
           userDoc.cartList.forEach(function (item) {
@@ -125,7 +125,7 @@ router.post("/addCart", function (req,res,next) {
             userDoc.save(function (err2,doc2) {
               if(err2){
                 res.json({
-                  status:"1",
+                  status:'1',
                   msg:err2.message
                 })
               }else{
@@ -140,7 +140,7 @@ router.post("/addCart", function (req,res,next) {
             Goods.findOne({productId:productId}, function (err1,doc) {
               if(err1){
                 res.json({
-                  status:"1",
+                  status:'1',
                   msg:err1.message
                 })
               }else{
@@ -151,7 +151,7 @@ router.post("/addCart", function (req,res,next) {
                   userDoc.save(function (err2,doc2) {
                     if(err2){
                       res.json({
-                        status:"1",
+                        status:'1',
                         msg:err2.message
                       })
                     }else{

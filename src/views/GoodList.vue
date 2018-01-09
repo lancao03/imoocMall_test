@@ -46,7 +46,7 @@
 									</div>
 								</li>
 							</ul>
-							<div v-infinite-scroll="loadMore" infinite-scroll-disable="busy" infinite-scroll-distance="20">
+							<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="20">
 								<img src="./../assets/loading-spinning-bubbles.svg" alt="" v-show="loading" />
 							</div>
 						</div>
@@ -56,6 +56,30 @@
 		</div>
 
 		<div class="md-overlay" v-show="overLayFlag" @click="closePop"></div>
+
+		<modal :mdShow="mdShowCart" @close="closeModal('mdShowCart')">
+			<p slot="message">
+				<symbol id="icon-status-ok" viewBox="0 0 32 32">
+					<title>status-ok</title>
+					<path class="path1" d="M22.361 10.903l-9.71 9.063-2.998-2.998c-0.208-0.209-0.546-0.209-0.754 0s-0.208 0.546 0 0.754l3.363 3.363c0.104 0.104 0.241 0.156 0.377 0.156 0.131 0 0.261-0.048 0.364-0.143l10.087-9.414c0.215-0.201 0.227-0.539 0.026-0.754s-0.539-0.226-0.754-0.026z"></path>
+					<path class="path2" d="M16 30.933c-8.234 0-14.933-6.699-14.933-14.933s6.699-14.933 14.933-14.933c8.234 0 14.933 6.699 14.933 14.933s-6.699 14.933-14.933 14.933zM16 0c-8.822 0-16 7.178-16 16 0 8.823 7.178 16 16 16s16-7.177 16-16c0-8.822-7.178-16-16-16z"></path>
+				</symbol>
+				<span>加入购物车成功</span>
+			</p>
+			<div slot="btnGroup">
+				<a href="javascript:;" @click="mdShowCart=false" class="btn btn--m">继续购物</a>
+				<router-link class="btn btn--m" to='/cart'>查看购物车</router-link>
+			</div>
+		</modal>
+
+		<modal :mdShow="mdShow" @close="closeModal('mdShow')">
+			<p slot="message">
+				请先登录，否则无法加入到购物车中！
+			</p>
+			<div slot="btnGroup">
+				<a href="javascript:;" @click="mdShow=false" class="btn btn--m">关闭</a>
+			</div>
+		</modal>
 
 		<v-footer></v-footer>
 	</div>
@@ -67,13 +91,15 @@
 	import vHeader from '@/components/header'
 	import vFooter from '@/components/footer'
 	import vBread from '@/components/bread'
+	import Modal from '@/components/Modal'
 
 	import axios from 'axios'
 	export default {
 		components: {
 			vHeader,
 			vFooter,
-			vBread
+			vBread,
+			Modal
 		},
 		data() {
 			return {
@@ -86,6 +112,8 @@
 				priceChecked: 'all',
 				filterBy: false,
 				overLayFlag: false,
+				mdShow: false,
+				mdShowCart:false,
 				priceFilter: [{
 					startPrice: '0.00',
 					endPrice: '500.00'
@@ -113,7 +141,7 @@
 					priceLevel: this.priceChecked
 				}
 				this.loading = true
-				axios.get('/goods', {
+				axios.get('/goods/list', {
 						params: param
 					})
 					.then((response) => {
@@ -124,7 +152,7 @@
 							if(flag) {
 								this.goodsList = this.goodsList.concat(res.result.list)
 
-								if(this.goodsList.count === 0) {
+								if(res.result.count == 0) {
 									//假如没有数据了 就不能再滚动了
 									this.busy = true
 								} else {
@@ -132,6 +160,7 @@
 								}
 							} else {
 								this.goodsList = res.result.list
+								this.busy = false
 							}
 						} else {
 							this.goodsList = []
@@ -148,7 +177,6 @@
 				setTimeout(() => {
 					this.page++;
 					this.getGoodList(true)
-					this.busy = false
 				}, 1000)
 			},
 			showFilterPop() {
@@ -172,11 +200,15 @@
 				}).then((res, req) => {
 					res = res.data
 					if(res.status == 0) {
-						alert('加入成功')
+						this.mdShowCart=true
 					} else {
-						alert('加入失败' + res.message)
+						//						alert('加入失败' + res.msg)
+						this.mdShow = true
 					}
 				})
+			},
+			closeModal(show) {
+				this[show] = false
 			}
 		}
 	}

@@ -14,6 +14,12 @@ module.exports = {
 			//			'/api/': 'http://localhost:3030/'
 			'/goods': {
 				target: 'http://localhost:3000'
+			},
+			'/goods/*':{
+				target:'http://localhost:3000'
+			},
+			'/users/*':{
+				target:'http://localhost:3000'
 			}
 		},
 
