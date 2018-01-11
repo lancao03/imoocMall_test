@@ -7,6 +7,24 @@ router.get('/', function(req, res, next) {
 	res.send('respond with a resource');
 });
 
+//报错信息公共函数
+function errJSON(err) {
+	if(!err) {
+		return {
+			status: '1',
+			msg: '',
+			result: ''
+		}
+	} else {
+		return {
+			status: '1',
+			msg: err.message,
+			result: ''
+		}
+	}
+}
+
+//登录
 router.post('/login', (req, res, next) => {
 	let param = {
 		userName: req.body.userName,
@@ -14,10 +32,7 @@ router.post('/login', (req, res, next) => {
 	};
 	User.findOne(param, function(err, doc) {
 		if(err) {
-			res.json({
-				status: '1',
-				msg: err.message
-			});
+			res.json(errJSON(err));
 		} else {
 			if(doc) {
 				//存在cookie里
@@ -81,6 +96,121 @@ router.get('/checkLogin', function(req, res, next) {
 			result: ''
 		})
 	}
+})
+
+//查询当前用户的购物车数据
+router.get('/cartList', function(req, res, next) {
+	var userId = req.cookies.userId;
+	User.findOne({
+		userId: userId
+	}, function(err, doc) {
+		if(err) {
+			res.json({
+				status: '1',
+				msg: err.message,
+				result: ''
+			});
+		} else {
+			if(doc) {
+				res.json({
+					status: '0',
+					msg: '',
+					result: doc.cartList
+				})
+			}
+		}
+	});
+});
+
+//购物车删除
+router.post('/cart/del', function(req, res, next) {
+	var userId = req.cookies.userId,
+		productId = req.body.productId;
+	User.update({
+		userId: userId
+	}, {
+		$pull: {
+			'cartList': {
+				'productId': productId
+			}
+		}
+	}, function(err, doc) {
+		if(err) {
+			res.json({
+				status: '1',
+				msg: err.message,
+				result: ''
+			})
+		} else {
+			console.log('测试删除', doc)
+			res.json({
+				status: '0',
+				msg: '',
+				result: '删除成功'
+			});
+		}
+	});
+});
+
+//修改商品数据
+router.post('/cartEdit', function(req, res, next) {
+	var userId = req.cookies.userId,
+		productId = req.body.productId,
+		productNum = req.body.productNum,
+		checked = req.body.checked
+
+	User.update({
+		'userId': userId,
+		'cartList.productId': productId
+	}, {
+		'cartList.$.productNum': productNum,
+		'cartList.$.checked': checked
+	}, function(err, doc) {
+		if(err) {
+			res.json({
+				status: '1',
+				msg: err.message,
+				result: ''
+			})
+		} else {
+			res.json({
+				status: '0',
+				msg: '',
+				result: 'success'
+			})
+		}
+	})
+});
+
+//批量修改购物车全选状态
+router.post('/editCheckAll', function(req, res, next) {
+	var userId = req.cookies.userId,
+		checkAll = req.body.checkAll ? '1' : '0';
+	User.findOne({
+		userId: userId
+	}, function(err, user) {
+		if(err) {
+			res.json(errJSON(err))
+		} else {
+			if(user) {
+				user.cartList.forEach((item) => {
+					item.checked = checkAll;
+				});
+				user.save(function(err1,doc){
+					if(err1){
+						res.json(errJSON(err1))
+					}else{
+						res.json({
+							status:'0',
+							msg:'',
+							result:'success'
+						})
+					}
+				})
+			}
+		}
+
+	})
 })
 
 module.exports = router;
