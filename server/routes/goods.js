@@ -23,7 +23,7 @@ mongoose.connection.on('disconnected', function() {
 	console.log('mongodb connected disconnected')
 })
 
-//查询商品数据
+//查询商品数据 价格筛选
 router.get('/list', function(req, res, next) {
 	let page = parseInt(req.param('page'))
 	let pageSize = parseInt(req.param('pageSize'))
