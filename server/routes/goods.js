@@ -3,10 +3,6 @@ var router = express.Router()
 var mongoose = require('mongoose')
 var Goods = require('../models/goods')
 
-var goodSchema = new mongoose.Schema({
-	name: String,
-	price: Number
-})
 
 //链接MongoDB数据库
 mongoose.connect('mongodb://127.0.0.1:27017/dumall')
