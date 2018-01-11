@@ -42,6 +42,9 @@
 				</div>
 			</div>
 		</div>
+		<modal>
+			
+		</modal>
 		<div class="md-modal modal-msg md-modal-transition" :class="{'md-show':loginModalFlag}">
 			<div class="md-modal-inner">
 				<div class="md-top">
@@ -60,7 +63,7 @@
 							</li>
 							<li class="regi_form_input noMargin">
 								<i class="icon IconPwd"></i>
-								<input type="password" tabindex="2" name="password" v-model="userPwd" class="regi_login_input regi_login_input_left login-input-no input_text" placeholder="Password">
+								<input type="password" tabindex="2" name="password" v-model="userPwd" class="regi_login_input regi_login_input_left login-input-no input_text" placeholder="Password" @keyup.enter="login">
 							</li>
 						</ul>
 					</div>
@@ -75,8 +78,12 @@
 </template>
 <script>
 	import './../assets/css/login.css'
+	import Modal from '@/components/Modal'
 	import axios from 'axios'
 	export default {
+		components:{
+			Modal
+		},
 		data() {
 			return {
 				userName: '',

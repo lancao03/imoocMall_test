@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<v-header></v-header>
-		<v-bread>
-		</v-bread>
+		<nav-header></nav-header>
+		<nav-bread>
+		</nav-bread>
 		<div class="accessory-result-page accessory-page">
 			<div class="container">
 				<div class="filter-nav">
@@ -81,24 +81,24 @@
 			</div>
 		</modal>
 
-		<v-footer></v-footer>
+		<nav-footer></nav-footer>
 	</div>
 </template>
 
 <script>
 	import './../assets/css/base.css'
 	import './../assets/css/product.css'
-	import vHeader from '@/components/header'
-	import vFooter from '@/components/footer'
-	import vBread from '@/components/bread'
+	import NavHeader from '@/components/NavHeader'
+	import NavFooter from '@/components/NavFooter'
+	import NavBread from '@/components/NavBread'
 	import Modal from '@/components/Modal'
 
 	import axios from 'axios'
 	export default {
 		components: {
-			vHeader,
-			vFooter,
-			vBread,
+			NavHeader,
+			NavFooter,
+			NavBread,
 			Modal
 		},
 		data() {
