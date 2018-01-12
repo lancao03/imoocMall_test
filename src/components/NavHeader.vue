@@ -33,17 +33,17 @@
 					<a href="javascript:void(0)" v-show="nickName" @click="logOut" class="navbar-link">Logout</a>
 					<div class="navbar-cart-container">
 						<span class="navbar-cart-count"></span>
-						<a class="navbar-link navbar-cart-link" href="/#/cart">
+						<router-link class="navbar-link navbar-cart-link" to="/cart">
 							<svg class="navbar-cart-logo">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cart"></use>
 							</svg>
-						</a>
+						</router-link>
 					</div>
 				</div>
 			</div>
 		</div>
 		<modal>
-			
+
 		</modal>
 		<div class="md-modal modal-msg md-modal-transition" :class="{'md-show':loginModalFlag}">
 			<div class="md-modal-inner">
@@ -81,7 +81,7 @@
 	import Modal from '@/components/Modal'
 	import axios from 'axios'
 	export default {
-		components:{
+		components: {
 			Modal
 		},
 		data() {
