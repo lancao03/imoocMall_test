@@ -1,8 +1,14 @@
 <template>
 	<div class="nav-breadcrumb-wrap">
 		<div class="container">
-			<nav class="nav-breadcrumb">
-			</nav>
+			<div class="nav-breadcrumb">
+				<nav class="">
+					<a href="/">
+						Home
+					</a>
+					<slot></slot>
+				</nav>
+			</div>
 		</div>
 	</div>
 </template>

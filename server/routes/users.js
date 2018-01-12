@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user')
+require('./../util/util')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -142,7 +143,6 @@ router.post('/cart/del', function(req, res, next) {
 				result: ''
 			})
 		} else {
-			console.log('测试删除', doc)
 			res.json({
 				status: '0',
 				msg: '',
@@ -196,14 +196,14 @@ router.post('/editCheckAll', function(req, res, next) {
 				user.cartList.forEach((item) => {
 					item.checked = checkAll;
 				});
-				user.save(function(err1,doc){
-					if(err1){
+				user.save(function(err1, doc) {
+					if(err1) {
 						res.json(errJSON(err1))
-					}else{
+					} else {
 						res.json({
-							status:'0',
-							msg:'',
-							result:'success'
+							status: '0',
+							msg: '',
+							result: 'success'
 						})
 					}
 				})
@@ -213,4 +213,160 @@ router.post('/editCheckAll', function(req, res, next) {
 	})
 })
 
+//查询用户地址接口
+router.get('/addressList', function(req, res, next) {
+	var userId = req.cookies.userId;
+	User.findOne({
+		userId: userId
+	}, function(err, doc) {
+		if(err) {
+			res.json(errJSON(err));
+		} else {
+			res.json({
+				status: '0',
+				msg: '',
+				result: doc.addressList
+			});
+		}
+	})
+});
+
+//设置默认地址接口
+router.post("/setDefault", function(req, res, next) {
+	var userId = req.cookies.userId,
+		addressId = req.body.addressId;
+	if(!addressId) {
+		res.json({
+			status: '1003',
+			msg: 'addressId is null',
+			result: ''
+		});
+	} else {
+		User.findOne({
+			userId: userId
+		}, function(err, doc) {
+			if(err) {
+				res.json({
+					status: '1',
+					msg: err.message,
+					result: ''
+				});
+			} else {
+				var addressList = doc.addressList;
+				addressList.forEach((item) => {
+					if(item.addressId == addressId) {
+						item.isDefault = true;
+					} else {
+						item.isDefault = false;
+					}
+				});
+
+				doc.save(function(err1, doc1) {
+					if(err) {
+						res.json({
+							status: '1',
+							msg: err.message,
+							result: ''
+						});
+					} else {
+						res.json({
+							status: '0',
+							msg: '',
+							result: ''
+						});
+					}
+				})
+			}
+		});
+	}
+});
+
+//删除地址接口
+router.post('/delAddress', function(req, res, next) {
+	var userId = req.cookies.userId,
+		addressId = req.body.addressId;
+	User.update({
+		userId: userId
+	}, {
+		$pull: {
+			'addressList': {
+				'addressId': addressId
+			}
+		}
+	}, function(err, doc) {
+		if(err) {
+			res.json(errJSON(err));
+		} else {
+			res.json({
+				status: '0',
+				msg: '',
+				result: 'success'
+			});
+		}
+	});
+});
+
+//提交订单
+router.post('/payMent', function(req, res, next) {
+	var userId = req.cookies.userId,
+		orderTotal = req.body.orderTotal,
+		addressId = req.body.addressId;
+	User.findOne({
+		userId: userId
+	}, function(err, doc) {
+		if(err) {
+			res.json(errJSON(err));
+		} else {
+			var address = '',
+				goodsList = [];
+			//获取当前用户的地址信息
+			doc.addressList.forEach((item) => {
+				if(addressId == item.addressId) {
+					address = item
+				}
+			});
+
+			//获取用户购物车的购买商品
+			doc.cartList.filter((item) => {
+				if(item.checked == '1') {
+					goodsList.push(item)
+				}
+			});
+			var r1 = Math.floor(Math.random() * 10);
+			var r2 = Math.floor(Math.random() * 10);
+
+			var platform = "622"; //平台码
+			var sysDate = new Date().Format('yyyyMMddhhmmss');
+			var createDate = new Date().Format('yyyy-MM-dd hh:mm:ss')
+			var orderId = platform + r1 + sysDate + r2;
+
+			var order = {
+				orderId: orderId,
+				orderTotal: orderTotal,
+				addressInfo: address,
+				goodsList: goodsList,
+				orderStatus: '1',
+				createDate: createDate
+			};
+
+			doc.orderList.push(order);
+
+			doc.save(function(err1, doc1) {
+				if(err1) {
+					res.json(errJSON(err1))
+				} else {
+					res.json({
+						status: '0',
+						msg: '',
+						result: {
+							orderId: order.orderId,
+							orderTotal: order.orderTotal
+						}
+					});
+				}
+			});
+
+		}
+	});
+});
 module.exports = router;
