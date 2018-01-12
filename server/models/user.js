@@ -12,7 +12,14 @@ let useSchema = new mongoose.Schema({
 		'checked': String,
 		'productNum': Number
 	}],
-	'addressList': Array
+	'addressList': [{
+		"addressId": String,
+		"userName": String,
+		"streetName": String,
+		"postCode": String,
+		"tel": String,
+		"isDefault": Boolean
+	}]
 })
 
 //默认取名字加s 如users

@@ -142,7 +142,6 @@ router.post('/cart/del', function(req, res, next) {
 				result: ''
 			})
 		} else {
-			console.log('测试删除', doc)
 			res.json({
 				status: '0',
 				msg: '',
@@ -196,14 +195,14 @@ router.post('/editCheckAll', function(req, res, next) {
 				user.cartList.forEach((item) => {
 					item.checked = checkAll;
 				});
-				user.save(function(err1,doc){
-					if(err1){
+				user.save(function(err1, doc) {
+					if(err1) {
 						res.json(errJSON(err1))
-					}else{
+					} else {
 						res.json({
-							status:'0',
-							msg:'',
-							result:'success'
+							status: '0',
+							msg: '',
+							result: 'success'
 						})
 					}
 				})
@@ -213,4 +212,96 @@ router.post('/editCheckAll', function(req, res, next) {
 	})
 })
 
+//查询用户地址接口
+router.get('/addressList', function(req, res, next) {
+	var userId = req.cookies.userId;
+	User.findOne({
+		userId: userId
+	}, function(err, doc) {
+		if(err) {
+			res.json(errJSON(err));
+		} else {
+			res.json({
+				status: '0',
+				msg: '',
+				result: doc.addressList
+			});
+		}
+	})
+});
+
+//设置默认地址接口
+router.post("/setDefault", function(req, res, next) {
+	var userId = req.cookies.userId,
+		addressId = req.body.addressId;
+	if(!addressId) {
+		res.json({
+			status: '1003',
+			msg: 'addressId is null',
+			result: ''
+		});
+	} else {
+		User.findOne({
+			userId: userId
+		}, function(err, doc) {
+			if(err) {
+				res.json({
+					status: '1',
+					msg: err.message,
+					result: ''
+				});
+			} else {
+				var addressList = doc.addressList;
+				addressList.forEach((item) => {
+					if(item.addressId == addressId) {
+						item.isDefault = true;
+					} else {
+						item.isDefault = false;
+					}
+				});
+
+				doc.save(function(err1, doc1) {
+					if(err) {
+						res.json({
+							status: '1',
+							msg: err.message,
+							result: ''
+						});
+					} else {
+						res.json({
+							status: '0',
+							msg: '',
+							result: ''
+						});
+					}
+				})
+			}
+		});
+	}
+});
+
+//删除地址接口
+router.post('/delAddress', function(req, res, next) {
+	var userId = req.cookies.userId,
+		addressId = req.body.addressId;
+	User.update({
+		userId: userId
+	}, {
+		$pull: {
+			'addressList': {
+				'addressId': addressId
+			}
+		}
+	}, function(err, doc) {
+		if(err) {
+			res.json(errJSON(err));
+		} else {
+			res.json({
+				status: '0',
+				msg: '',
+				result: 'success'
+			});
+		}
+	});
+})
 module.exports = router;
