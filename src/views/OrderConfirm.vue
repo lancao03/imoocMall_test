@@ -176,16 +176,16 @@
 				var addressId = this.$route.query.addressId;
 				console.log('路由获取 addressid', addressId)
 				axios.post('/users/payMent', {
-					orderId: this.orderTotal,
+					orderTotal: this.orderTotal,
 					addressId: addressId
 				}).then((response) => {
 					let res = response.data
 					if(res.status == '0') {
-						console.log('order create suc', addressId)
+						console.log('order create suc', addressId,res.result.orderId)
 						this.$router.push({
-							path: '/oderSuccess',
+							path: '/orderSuccess',
 							query: {
-								addressId: addressId
+								orderId: res.result.orderId
 							}
 						})
 					}
