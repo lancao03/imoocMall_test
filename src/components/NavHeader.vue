@@ -22,17 +22,13 @@
 		</svg>
 		<div class="navbar">
 			<div class="navbar-left-container">
-				<a href="/">
-					<img class="navbar-brand-logo" src="/static/logo.png">
-				</a>
+				<a href="/"> <img class="navbar-brand-logo" src="/static/logo.png"> </a>
 			</div>
 			<div class="navbar-right-container" style="display: flex;">
-				<div class="navbar-menu-container">
-					<span class="navbar-link" v-show="nickName">{{nickName}}</span>
+				<div class="navbar-menu-container"> <span class="navbar-link" v-show="nickName">{{nickName}}</span>
 					<a href="javascript:void(0)" class="navbar-link" v-show="!nickName" @click="loginModalFlag=true">Login</a>
 					<a href="javascript:void(0)" v-show="nickName" @click="logOut" class="navbar-link">Logout</a>
-					<div class="navbar-cart-container">
-						<span class="navbar-cart-count"></span>
+					<div class="navbar-cart-container"> <span class="navbar-cart-count" v-if="cartCount>0">{{cartCount}}</span>
 						<router-link class="navbar-link navbar-cart-link" to="/cart">
 							<svg class="navbar-cart-logo">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cart"></use>
@@ -42,29 +38,17 @@
 				</div>
 			</div>
 		</div>
-		<modal>
-
-		</modal>
+		<modal> </modal>
 		<div class="md-modal modal-msg md-modal-transition" :class="{'md-show':loginModalFlag}">
 			<div class="md-modal-inner">
 				<div class="md-top">
-					<div class="md-title">Login in</div>
-					<button class="md-close" @click="loginModalFlag=false">Close</button>
-				</div>
+					<div class="md-title">Login in</div> <button class="md-close" @click="loginModalFlag=false">Close</button> </div>
 				<div class="md-content">
 					<div class="confirm-tips">
-						<div class="error-wrap">
-							<span class="error error-show" v-show="errorTip">用户名或者密码错误</span>
-						</div>
+						<div class="error-wrap"> <span class="error error-show" v-show="errorTip">用户名或者密码错误</span> </div>
 						<ul>
-							<li class="regi_form_input">
-								<i class="icon IconPeople"></i>
-								<input type="text" tabindex="1" name="loginname" v-model="userName" class="regi_login_input regi_login_input_left" placeholder="User Name" data-type="loginname">
-							</li>
-							<li class="regi_form_input noMargin">
-								<i class="icon IconPwd"></i>
-								<input type="password" tabindex="2" name="password" v-model="userPwd" class="regi_login_input regi_login_input_left login-input-no input_text" placeholder="Password" @keyup.enter="login">
-							</li>
+							<li class="regi_form_input"> <i class="icon IconPeople"></i> <input type="text" tabindex="1" name="loginname" v-model="userName" class="regi_login_input regi_login_input_left" placeholder="User Name" data-type="loginname"> </li>
+							<li class="regi_form_input noMargin"> <i class="icon IconPwd"></i> <input type="password" tabindex="2" name="password" v-model="userPwd" class="regi_login_input regi_login_input_left login-input-no input_text" placeholder="Password" @keyup.enter="login"> </li>
 						</ul>
 					</div>
 					<div class="login-wrap">
@@ -80,6 +64,7 @@
 	import './../assets/css/login.css'
 	import Modal from '@/components/Modal'
 	import axios from 'axios'
+	import { mapState } from 'vuex'
 	export default {
 		components: {
 			Modal
@@ -90,8 +75,16 @@
 				userPwd: '',
 				errorTip: false,
 				loginModalFlag: false,
-				nickName: false
 			}
+		},
+		computed: {
+			//			nickName() {
+			//				return this.$store.state.nickName
+			//			},
+			//			cartCount(){
+			//				return this.$store.state.cartCount
+			//			}
+			...mapState(['nickName', 'cartCount'])
 		},
 		mounted() {
 			this.checkLogin()
@@ -112,6 +105,7 @@
 						this.errorTip = false
 						this.loginModalFlag = false
 						this.nickName = res.result.userName
+						this.getCartCount()
 					} else {
 						this.errorTip = true
 					}
@@ -121,22 +115,30 @@
 				axios.post('/users/logout').then((response) => {
 					let res = response.data
 					if(res.status == '0') {
-						this.nickName = ''
+						this.$store.commit('updateUserInfo', '')
+						//						this.nickName = ''
 					}
 				})
-
 			},
 			checkLogin() {
+				this.getCartCount()
 				axios.get('/users/checkLogin').then((response) => {
 					let res = response.data
 					if(res.status == '0') {
-						this.nickName = res.result
+						this.$store.commit('updateUserInfo', res.result)
+						//this.nickName = res.result
+					}
+				})
+			},
+			getCartCount() {
+				axios.get('/users/getCartCount').then((response) => {
+					let res = response.data
+					if(res.status == '0') {
+						this.$store.commit('initCartCount', res.result)
 					}
 				})
 			}
-
 		}
-
 	}
 </script>
 <style>
@@ -146,7 +148,6 @@
 		font-family: "moderat", sans-serif;
 		font-size: 16px;
 	}
-	
 	.navbar {
 		display: flex;
 		justify-content: space-between;
@@ -157,50 +158,40 @@
 		margin: 0 auto;
 		padding: 5px 20px 10px 20px;
 	}
-	
 	.navbar-left-container {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 		margin-left: -20px;
 	}
-	
 	.navbar-brand-logo {
 		/*width: 120px;*/
 	}
-	
-	.header a,
-	.footer a {
+	.header a, .footer a {
 		color: #666;
 		text-decoration: none;
 	}
-	
 	a {
 		-webkit-transition: color .3s ease-out;
 		transition: color .3s ease-out;
 	}
-	
 	.navbar-right-container {
 		display: none;
 		justify-content: flex-start;
 		align-items: center;
 	}
-	
 	.navbar-menu-container {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
 		padding-top: 10px;
 	}
-	
 	.navbar-link {
 		padding-left: 15px;
 	}
-	
 	.navbar-cart-container {
 		position: relative;
 	}
-	
 	.navbar-cart-count {
 		justify-content: center;
 		align-items: center;
@@ -215,7 +206,6 @@
 		font-weight: bold;
 		text-align: center;
 	}
-	
 	.navbar-cart-logo {
 		width: 25px;
 		height: 25px;

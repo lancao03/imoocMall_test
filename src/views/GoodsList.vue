@@ -204,6 +204,7 @@
 					res = res.data
 					if(res.status == 0) {
 						this.mdShowCart=true
+						this.$store.commit('updateCartCount',1)
 					} else {
 						//						alert('加入失败' + res.msg)
 						this.mdShow = true

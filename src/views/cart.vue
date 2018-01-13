@@ -33,8 +33,7 @@
 		<div class="container">
 			<div class="cart">
 				<div class="page-title-normal">
-					<h2 class="page-title-h2"><span>My Cart</span></h2>
-				</div>
+					<h2 class="page-title-h2"><span>My Cart</span></h2> </div>
 				<div class="item-list-wrap">
 					<div class="cart-item">
 						<div class="cart-item-head">
@@ -56,9 +55,7 @@
 											</svg>
 										</a>
 									</div>
-									<div class="cart-item-pic">
-										<img :src="'/static/'+item.productImage" :alt="item.productName">
-									</div>
+									<div class="cart-item-pic"> <img :src="'/static/'+item.productImage" :alt="item.productName"> </div>
 									<div class="cart-item-title">
 										<div class="item-name">{{item.productName}}</div>
 									</div>
@@ -70,8 +67,7 @@
 									<div class="item-quantity">
 										<div class="select-self select-self-open">
 											<div class="select-self-area">
-												<a class="input-sub" @click="editCart('minus',item)">-</a>
-												<span class="select-ipt">{{item.productNum}}</span>
+												<a class="input-sub" @click="editCart('minus',item)">-</a> <span class="select-ipt">{{item.productNum}}</span>
 												<a class="input-add" @click="editCart('add',item)">+</a>
 											</div>
 										</div>
@@ -82,7 +78,7 @@
 								</div>
 								<div class="cart-tab-5">
 									<div class="cart-item-opration">
-										<a href="javascript:;" class="item-edit-btn" @click="delCartConfirm(item.productId)">
+										<a href="javascript:;" class="item-edit-btn" @click="delCartConfirm(item)">
 											<svg class="icon icon-del">
 												<use xlink:href="#icon-del"></use>
 											</svg>
@@ -97,18 +93,13 @@
 					<div class="cart-foot-inner">
 						<div class="cart-foot-l">
 							<div class="item-all-check">
-								<a href="javascipt:;" @click="toggleCheckAll">
-									<span class="checkbox-btn item-check-btn" :class="{'check':checkAllFlag}">
+								<a href="javascipt:;" @click="toggleCheckAll"> <span class="checkbox-btn item-check-btn" :class="{'check':checkAllFlag}">
                       <svg class="icon icon-ok"><use xlink:href="#icon-ok"/></svg>
-                  </span>
-									<span>Select all</span>
-								</a>
+                  </span> <span>Select all</span> </a>
 							</div>
 						</div>
 						<div class="cart-foot-r">
-							<div class="item-total">
-								Item total: <span class="total-price">{{totalPrice|currency('$')}}</span>
-							</div>
+							<div class="item-total"> Item total: <span class="total-price">{{totalPrice|currency('$')}}</span> </div>
 							<div class="btn-wrap">
 								<a class="btn btn--red" :class="{'btn--dis':checkedCount==0}" @click="checkOut">Checkout</a>
 							</div>
@@ -128,8 +119,7 @@
 	</div>
 </template>
 <style>
-	.input-sub,
-	.input-add {
+	.input-sub, .input-add {
 		min-width: 40px;
 		height: 100%;
 		border: 0;
@@ -140,12 +130,10 @@
 		display: inline-block;
 		background: #f0f0f0;
 	}
-	
 	.item-quantity .select-self-area {
 		background: none;
 		border: 1px solid #f0f0f0;
 	}
-	
 	.item-quantity .select-self-area .select-ipt {
 		display: inline-block;
 		padding: 0 3px;
@@ -173,7 +161,7 @@
 			return {
 				cartList: {},
 				modalConfirm: false,
-				productId: '',
+				delItem: '',
 			}
 		},
 		mounted() {
@@ -218,18 +206,19 @@
 					this.cartList = res.result
 				})
 			},
-			delCartConfirm(productId) {
-				this.productId = productId
+			delCartConfirm(item) {
+				this.delItem = item
 				this.modalConfirm = true
 			},
 			delCart() {
 				axios.post('/users/cart/del', {
-					productId: this.productId
+					productId: this.delItem.productId
 				}).then((response) => {
 					let res = response.data
 					if(res.status == '0') {
 						this.modalConfirm = false
 						this.init()
+						this.$store.commit('updateCartCount', -this.delItem.productNum)
 					}
 				})
 			},
@@ -253,12 +242,15 @@
 					checked: item.checked
 				}).then((response) => {
 					let res = response.data
-					if(res.result == '0') {
-
-					} else {
-
+					let num = 0
+					if(flag == 'add') {
+						num = 1
+					} else if(flag == 'minus') {
+						num = -1
 					}
-
+					if(res.status == '0') {
+						this.$store.commit('updateCartCount', num)
+					}
 				})
 			},
 			toggleCheckAll() {

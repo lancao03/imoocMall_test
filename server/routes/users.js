@@ -65,7 +65,7 @@ router.post('/login', function(req, res, next) {
 })
 
 //登出接口
-router.post('/logout', function (req, res, next){
+router.post('/logout', function(req, res, next) {
 	res.cookie('userId', '', {
 		path: '/',
 		maxAge: -1
@@ -412,12 +412,34 @@ router.get('/orderDetail', function(req, res, next) {
 					status: '12001',
 					msg: '当前用户没有创建订单',
 					result: ''
-				})
+				});
 			}
 
 		}
-	})
+	});
 
-})
+});
 
+//查询购物车数量
+router.get('/getCartCount', function(req, res, next) {
+	var userId = req.cookies.userId;
+	User.findOne({
+		userId: userId
+	}, function(err, userInfo) {
+		if(err) {
+			res.json(errJSON(err));
+		} else {
+			var cartList = userInfo.cartList;
+			var cartCount = 0;
+			cartList.map((item) => {
+				cartCount += parseInt(item.productNum);
+			});
+			res.json({
+				status: '0',
+				msg: '',
+				result: cartCount
+			});
+		}
+	});
+});
 module.exports = router;
