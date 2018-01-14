@@ -165,7 +165,7 @@
 		},
 		methods: {
 			init() {
-				axios.get('/users/addressList').then((response) => {
+				axios.get('/api/users/addressList').then((response) => {
 					let res = response.data
 					this.addressList = res.result
 					this.selectedAddrId=this.addressList[0].addressId
@@ -180,7 +180,7 @@
 				console.log(this.limit)
 			},
 			setDefault(addressId) {
-				axios.post('/users/setDefault', {
+				axios.post('/api/users/setDefault', {
 					addressId: addressId
 				}).then((response) => {
 					let res = response.data
@@ -198,7 +198,7 @@
 				this.addressId = addressId
 			},
 			delAddress() {
-				axios.post('/users/delAddress', {
+				axios.post('/api/users/delAddress', {
 					addressId: this.addressId
 				}).then((response) => {
 					let res = response.data

@@ -96,7 +96,7 @@
 					this.errorTip = true
 					return
 				}
-				axios.post('/users/login', {
+				axios.post('/api/users/login', {
 					userName: this.userName,
 					userPwd: this.userPwd
 				}).then((response) => {
@@ -112,7 +112,7 @@
 				})
 			},
 			logOut() {
-				axios.post('/users/logout').then((response) => {
+				axios.post('/api/users/logout').then((response) => {
 					let res = response.data
 					if(res.status == '0') {
 						this.$store.commit('updateUserInfo', '')
@@ -122,7 +122,7 @@
 			},
 			checkLogin() {
 				this.getCartCount()
-				axios.get('/users/checkLogin').then((response) => {
+				axios.get('/api/users/checkLogin').then((response) => {
 					let res = response.data
 					if(res.status == '0') {
 						this.$store.commit('updateUserInfo', res.result)
@@ -131,7 +131,7 @@
 				})
 			},
 			getCartCount() {
-				axios.get('/users/getCartCount').then((response) => {
+				axios.get('/api/users/getCartCount').then((response) => {
 					let res = response.data
 					if(res.status == '0') {
 						this.$store.commit('initCartCount', res.result)

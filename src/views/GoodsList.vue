@@ -144,7 +144,7 @@
 					priceLevel: this.priceChecked
 				}
 				this.loading = true
-				axios.get('/goods/list', {
+				axios.get('/api/goods/list', {
 						params: param
 					})
 					.then((response) => {
@@ -198,7 +198,7 @@
 			},
 			addCart(productId) {
 				console.log(productId)
-				axios.post('/goods/addCart', {
+				axios.post('/api/goods/addCart', {
 					productId: productId
 				}).then((res, req) => {
 					res = res.data

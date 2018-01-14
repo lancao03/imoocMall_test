@@ -157,7 +157,7 @@
 		},
 		methods: {
 			init() {
-				axios.get('/users/cartList').then((response) => {
+				axios.get('/api/users/cartList').then((response) => {
 					let res = response.data
 					this.cartList = res.result
 					//遍历计算总价
@@ -175,7 +175,7 @@
 			payMent() {
 				var addressId = this.$route.query.addressId;
 				console.log('路由获取 addressid', addressId)
-				axios.post('/users/payMent', {
+				axios.post('/api/users/payMent', {
 					orderTotal: this.orderTotal,
 					addressId: addressId
 				}).then((response) => {
